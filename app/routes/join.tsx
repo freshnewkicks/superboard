@@ -7,6 +7,7 @@ import { createUserSession, getUserId } from "~/session.server";
 
 import { createUser, getUserByEmail } from "~/models/user.server";
 import { safeRedirect, validateEmail } from "~/utils/utils";
+import { UserForm } from "~/components/generics/userForm";
 
 export async function loader({ request }: LoaderArgs) {
   const userId = await getUserId(request);
@@ -87,8 +88,9 @@ export default function Join() {
 
   return (
     <div className="flex min-h-full flex-col justify-center">
+      <UserForm />
       <div className="mx-auto w-full max-w-md px-8">
-        <Form method="post" className="space-y-6" noValidate>
+        <Form method="post" className="border-2 border-black rounded-md space-y-6 p-2">
           <div>
             <label
               htmlFor="email"
