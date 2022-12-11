@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 function getClient() {
-  const { DATABASE_URL } = process.env;
+  const { DATABASE_URL} = process.env;
   invariant(typeof DATABASE_URL === "string", "DATABASE_URL env var not set");
 
   const databaseUrl = new URL(DATABASE_URL);
