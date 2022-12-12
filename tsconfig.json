@@ -16,7 +16,10 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./app/*"],
+      "@gComp/*": ["./app/components/generics/*"],
+      "@comp/*": ["./app/components/*/"],
+      "@type/*": ["./app/utils/types/*"],
     },
     "skipLibCheck": true,
 

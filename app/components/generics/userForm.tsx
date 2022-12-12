@@ -1,7 +1,7 @@
 import type { ActionArgs, LoaderArgs } from "@remix-run/node";
 import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
 import React from "react";
-import { typedjson, useTypedActionData, useTypedLoaderData } from "remix-typedjson";
+import { typedjson, useTypedLoaderData } from "remix-typedjson";
 import type { TypedMetaFunction } from "remix-typedjson"
 
 import { safeRedirect, validateEmail } from "~/utils/utils";
