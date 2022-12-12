@@ -1,7 +1,7 @@
 import type { LoaderArgs } from "@remix-run/node"
 import { useEffect } from "react";
 import { typedjson, useTypedLoaderData } from "remix-typedjson"
-import { TopNav } from "~/components/generics/topNav"
+import { TopNav } from "@gComp/TopNav"
 import { requireUser } from "~/session.server";
 import { redirectWithError } from "~/user.server";
 

@@ -7,32 +7,56 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model User {
-  id    String @id @default(cuid())
-  email String @unique
+enum EAdminRoles {
+  Admin
+  Mod
+}
+
+enum ENormalRoles {
+  Creator
+  Mod
+  Member
+}
+
+model Member {
+  id       Int          @id @unique @default(autoincrement())
+  name     String
+  username String       @unique
+  email    String       @unique
+  role     ENormalRoles
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   password Password?
-  notes    Note[]
+  boards   Board[]
 }
 
 model Password {
+  id   Int    @id @unique @default(autoincrement())
   hash String
 
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  userId String @unique
+  member   Member @relation(fields: [memberId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  memberId Int    @unique
 }
 
-model Note {
-  id    String @id @default(cuid())
-  title String
-  body  String
+model Board {
+  id        Int    @id @unique @default(autoincrement())
+  userId    String
+  boardName String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  userId String
+  tasks   Task[]
+  members Member[]
+}
+
+model Task {
+  id       String @id @unique @default(cuid())
+  taskName String
+  taskId   String
+
+  boardId Int   @unique @default(autoincrement())
+  Board   Board @relation(fields: [boardId], references: [id])
 }

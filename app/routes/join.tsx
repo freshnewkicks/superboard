@@ -7,7 +7,7 @@ import { createUserSession, getUserId } from "~/session.server";
 
 import { createUser, getUserByEmail } from "~/models/user.server";
 import { safeRedirect, validateEmail } from "~/utils/utils";
-import { UserForm } from "~/components/generics/userForm";
+import { UserForm } from "~/components/generics/UserForm";
 
 export async function loader({ request }: LoaderArgs) {
   const userId = await getUserId(request);

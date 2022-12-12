@@ -10,7 +10,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import type { TNavAnchors } from '~/utils/types/components';
+import type { TNavAnchors } from '@type/components';
 
 export const TopNav = () => {
   const [drawer, setDrawer] = React.useState<TNavAnchors>({
